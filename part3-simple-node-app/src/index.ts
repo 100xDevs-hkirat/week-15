@@ -1,5 +1,5 @@
 import 'dotenv/config'
-
+import mongoose from "mongoose";
 import express from "express";
 
 const app = express()
@@ -12,3 +12,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+mongoose.connect(process.env.MONGO_URL || "", { dbName: "courses" });
